@@ -1,0 +1,32 @@
+@model personapi_dotnet.Models.Entities.Persona
+@{ ViewData["Title"] = "Eliminar Persona"; }
+
+<div class="d-flex align-items-center mb-3 gap-2">
+    <a asp-action="Index" class="btn btn-outline-secondary btn-sm"><i class="bi bi-arrow-left"></i></a>
+    <h2 class="mb-0 text-danger"><i class="bi bi-trash"></i> Eliminar Persona</h2>
+</div>
+
+<div class="card border-danger" style="max-width:500px">
+    <div class="card-body">
+        <div class="alert alert-warning">
+            <i class="bi bi-exclamation-triangle"></i>
+            ¿Está seguro de que desea eliminar esta persona? Esta acción no se puede deshacer.
+        </div>
+        <dl class="row">
+            <dt class="col-sm-4">Cédula</dt>   <dd class="col-sm-8">@Model.Cc</dd>
+            <dt class="col-sm-4">Nombre</dt>   <dd class="col-sm-8">@Model.Nombre @Model.Apellido</dd>
+            <dt class="col-sm-4">Género</dt>   <dd class="col-sm-8">@(Model.Genero == "M" ? "Masculino" : "Femenino")</dd>
+            <dt class="col-sm-4">Edad</dt>     <dd class="col-sm-8">@Model.Edad</dd>
+        </dl>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Cc" />
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-trash"></i> Confirmar Eliminación
+                </button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

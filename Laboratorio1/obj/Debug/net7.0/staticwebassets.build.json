@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Vagw7Lw+sPYdwxVF0hMwHRBy4HlMvjLs9gHKGBOrai8=",
+  "Source": "personapi-dotnet",
+  "BasePath": "_content/personapi-dotnet",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
