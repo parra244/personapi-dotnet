@@ -1,0 +1,44 @@
+@model personapi_dotnet.Models.Entities.Estudio
+@{ ViewData["Title"] = "Editar Estudio"; }
+
+<h2>Editar Estudio</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdProf" />
+            <input type="hidden" asp-for="CcPer" />
+            
+            <div class="mb-3">
+                <label class="form-label">Profesión ID</label>
+                <input class="form-control" value="@Model.IdProf" disabled />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Cédula Persona</label>
+                <input class="form-control" value="@Model.CcPer" disabled />
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Univer" class="form-label"></label>
+                <input asp-for="Univer" class="form-control" />
+                <span asp-validation-for="Univer" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Fecha" class="form-label"></label>
+                <input asp-for="Fecha" class="form-control" type="date" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <button type="submit" class="btn btn-warning">Guardar Cambios</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

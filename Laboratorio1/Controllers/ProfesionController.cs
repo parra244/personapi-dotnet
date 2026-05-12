@@ -71,7 +71,7 @@ namespace personapi_dotnet.Controllers
 
     // ── API Controller ───────────────────────────────────────────────────────
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Profesion")]
     public class ProfesionApiController : ControllerBase
     {
         private readonly IProfesionRepository _repo;

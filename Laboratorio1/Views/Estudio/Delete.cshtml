@@ -1,0 +1,28 @@
+@model personapi_dotnet.Models.Entities.Estudio
+@{ ViewData["Title"] = "Eliminar Estudio"; }
+
+<h2 class="text-danger">Eliminar Estudio</h2>
+<h3>¿Estás seguro que deseas eliminar este registro de estudio?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.IdProf)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.IdProf)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CcPer)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.CcPer)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Univer)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Univer)</dd>
+        
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Fecha)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Fecha)</dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdProf" />
+        <input type="hidden" asp-for="CcPer" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

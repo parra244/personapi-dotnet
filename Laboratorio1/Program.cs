@@ -63,6 +63,10 @@ app.UseAuthorization();
 // MVC routes
 app.MapGet("/", () => Results.Redirect("/swagger"));
 
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
 // API routes (attribute routing)
 app.MapControllers();
 

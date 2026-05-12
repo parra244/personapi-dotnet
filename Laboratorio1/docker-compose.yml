@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  sql_server_db:
+    image: mcr.microsoft.com/azure-sql-edge:latest
+    container_name: sql_server_db
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd!
+    ports:
+      - "1433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  db_init:
+    image: mcr.microsoft.com/mssql-tools
+    container_name: sql_server_db_init
+    depends_on:
+      - sql_server_db
+    volumes:
+      - ./DataBase/persona_db.sql:/tmp/persona_db.sql
+    command: >
+      bash -c '
+      echo "Esperando a que SQL Server inicie (15 segundos)..."
+      sleep 15
+      /opt/mssql-tools/bin/sqlcmd -S sql_server_db -U sa -P YourStrong@Passw0rd! -i /tmp/persona_db.sql
+      echo "¡Base de datos inicializada correctamente!"
+      '
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: personapi_web
+    ports:
+      - "5050:80"
+    depends_on:
+      - db_init
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=sql_server_db,1433;Database=persona_db;User Id=sa;Password=YourStrong@Passw0rd!;TrustServerCertificate=True;
+
+volumes:
+  sql_data:

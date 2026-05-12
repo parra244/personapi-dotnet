@@ -1,0 +1,43 @@
+@model personapi_dotnet.Models.Entities.Estudio
+@{ ViewData["Title"] = "Crear Estudio"; }
+
+<h2>Registrar Nuevo Estudio</h2>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="mb-3">
+                <label asp-for="IdProf" class="form-label"></label>
+                <select asp-for="IdProf" class="form-select" asp-items="ViewBag.Profesiones"></select>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="CcPer" class="form-label"></label>
+                <select asp-for="CcPer" class="form-select" asp-items="ViewBag.Personas"></select>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Univer" class="form-label"></label>
+                <input asp-for="Univer" class="form-control" />
+                <span asp-validation-for="Univer" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label asp-for="Fecha" class="form-label"></label>
+                <input asp-for="Fecha" class="form-control" type="date" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Registrar</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

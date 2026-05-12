@@ -93,7 +93,7 @@ namespace personapi_dotnet.Controllers
 
     // ── API Controller ───────────────────────────────────────────────────────
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Telefono")]
     public class TelefonoApiController : ControllerBase
     {
         private readonly ITelefonoRepository _repo;

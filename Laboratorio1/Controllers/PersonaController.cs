@@ -86,7 +86,7 @@ namespace personapi_dotnet.Controllers
 
     // ── API Controller (REST / Swagger) ──────────────────────────────────────
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Persona")]
     public class PersonaApiController : ControllerBase
     {
         private readonly IPersonaRepository _repo;

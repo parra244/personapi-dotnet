@@ -103,7 +103,7 @@ namespace personapi_dotnet.Controllers
 
     // ── API Controller ───────────────────────────────────────────────────────
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/Estudio")]
     public class EstudioApiController : ControllerBase
     {
         private readonly IEstudioRepository _repo;
